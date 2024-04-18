@@ -211,7 +211,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="container">
    
     <h2>Registration</h2>
-    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete="off" onclick="return validate()">
+    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete="off">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" required><br>
       <label for="username">Username:</label>

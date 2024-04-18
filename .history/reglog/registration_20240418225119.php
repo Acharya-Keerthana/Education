@@ -209,9 +209,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
   <div class="container">
-   
     <h2>Registration</h2>
-    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete="off" onclick="return validate()">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete="off">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" required><br>
       <label for="username">Username:</label>
@@ -226,63 +225,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
     <a href="login.php" class="login-link">Already have an account? Login</a>
   </div>
-  <script>
-        function nameValid() {
-            let name = document.forms.name.value;
-            let nameReg = /^[a-zA-Z]+$/;
-            if (!nameReg.test(name)) {
-                alert("Field cannot be empty and name should contain alphabets only");
-                return false;
-            }
-            return true;
-        }
-
-        function ageValid() {
-            let age = document.forms.age.value;
-            if (isNaN(age)) {
-                alert("Age should be numeric value only");
-                return false;
-            }
-            return true;
-        }
-
-        function passwordValid() {
-            let pass = document.forms.pass.value;
-            let cpass = document.forms.cpass.value;
-            if (pass !== cpass || pass.length < 6) {
-                alert("Please confirm the password and enter at least 6 characters");
-                return false;
-            }
-            return true;
-        }
-
-        function phoneValid() {
-            let ph = document.forms.ph.value;
-            let phReg = /^[0-9]{10}$/;
-            if (!phReg.test(ph)) {
-                alert("Phone number should contain 10 digits only");
-                return false;
-            }
-            return true;
-        }
-
-        function emailValid() {
-            let x = document.forms.email.value;
-            let atpos = x.indexOf("@");
-            let dotpos = x.lastIndexOf(".");
-            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 1 >= x.length) {
-                alert("Please enter a valid email address");
-                return false;
-            }
-            return true;
-        }
-
-        function validate() {
-            if (ageValid() && nameValid() && passwordValid() && emailValid() && phoneValid()) {
-                return true;
-            }
-            return false;
-        }
-    </script>
 </body>
 </html>
